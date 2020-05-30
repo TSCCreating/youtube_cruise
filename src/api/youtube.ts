@@ -7,12 +7,14 @@ export const searchAPI = async (props: Props) => {
   return await axios
     .get('https://www.googleapis.com/youtube/v3/search', {
       params: {
-        part: 'snippet',
+        part: 'id',
         q: props.q,
-        key: 'AIzaSyBaSBGsdnm1s1TWfOn2HTsU4_5xNKjJ_eg'
+        type: 'video',
+        maxResults: 30,
+        key: 'AIzaSyAkWvdYgp8Dro1RlMvJOUJe-UUUfDGkVNc'
       }
     })
     .then((res) => {
-      return res.data.items[0]
+      return res.data.items
     })
 }
